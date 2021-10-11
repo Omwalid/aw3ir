@@ -1,20 +1,22 @@
 body {
-    background-color: #e9ebee;
+    background-color: rgb(95,158,160, 0.2);
     font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
     font-size: 16px;
     margin: 0 auto;
   }
-  td {
-    border: 1px solid black;
-    text-align: center;
-    width: 50%;
-  }
-  table {
-      width: 100%;
-  }
-  .titles {
-text-align: center;
-  }
-  .point{
-    width: 20%;
-  }
+#header{
+  display: flex; width: 80%; margin: 0 auto;
+}
+
+#header div {width: 50%; margin: 10px 10px;}
+
+.container1 {display: flex;}
+
+.content {width : 70%;border-left: 1px solid black;}
+.content-title {width: 30%;}
+.titles {text-align: center;}
+
+
+a {text-decoration: none;}
+
+img {width: 150px; height: 150px; margin: 30px 30px;}
