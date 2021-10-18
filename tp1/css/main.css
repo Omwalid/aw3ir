@@ -17,6 +17,6 @@ body {
 .titles {text-align: center;}
 
 
-a {text-decoration: none;}
+a {text-decoration: none; color: black}
 
 img {width: 150px; height: 150px; margin: 30px 30px;}
