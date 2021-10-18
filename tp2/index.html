@@ -1,33 +1,87 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>TP2</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>TP2</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <style>
-          body{
-              background-color: #e9ebee;              
-              font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
-              font-size: 16px;
-              margin: 0 auto;
-              max-width: 800px;              
-          }
-        </style>
-        
-        <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
-        <!--<link rel="stylesheet" href="style.css">-->
-        <!--<script src="js/main.js"></script>-->
-    </head>
-    <body>        
-        <h1>tp2</h1>
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-        <img src="../galilee.png" alt="Logo Galilee"/>
-    </body>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script type="text/javascript" src="formulaire.js"></script>
+    <link rel="stylesheet" href="index.css" />
+
+
+</head>
+
+<body>
+
+    <div id="containerALL">
+
+        <h2>Saisie d'une fiche "Personne"</h2>
+
+
+        <form>
+            <div class="form-group">
+                <label for="nom">Nom :</label>
+                <input type="text" class="form-control" id="nom" max="20" min="5">
+            </div>
+            <div class="form-group">
+                <label for="prenom">Prénom :</label>
+                <input type="text" class="form-control" id="prenom" max="20" min="5">
+            </div>
+            <div class="form-group">
+                <label for="ddn">Date de naissance : </label>
+                <input type="date" class="form-control" id="ddn" placeholder="JJ/MM/AAAA">
+            </div>
+            <div class="form-group">
+                <label for="adress">Adresse :</label>
+                <input type="text" class="form-control" id="adress" max="50" min="5">
+            </div>
+            <div class="form-group">
+                <label for="mail">Email : </label>
+                <input type="email" class="form-control" id="mail" max="30" min="5">
+            </div>
+            <button type="submit" onclick="validation()" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="error"> </div>
+        <div id="resultat"> </div>
+
+    </div>
+</body>
+
 </html>
+
+<!--
+
+            <form action="">
+
+            <div >
+                <label for="name">Nom: </label>
+                <input style="margin: ;" type="text" name="name" id="name" required>
+              </div>
+              <div >
+                <label for="prenom">Prénom : </label>
+                <input type="text" name="prenom" id="prenom" required>
+              </div>
+              <div >
+                <label for="ddn">Date de naissance : </label>
+                <input type="text" name="ddn" id="ddn" placeholder="JJ/MM/AAAA" required>
+              </div>
+              <div >
+                <label for="adress">Adress : </label>
+                <input type="text" name="adress" id="adress" required>
+              </div>
+              <div >
+                <label for="email">Enter your email: </label>
+                <input type="email" name="email" id="email" required>
+              </div>
+              <div >
+                <input type="submit" value="Subscribe!">
+              </div>
+
+        </form>
+-->
