@@ -32,7 +32,7 @@ function validation() {
 
             if (item[1].length < 5 || item[0].length > item[2]) {
 
-                error = "le " + item[0] + " doit être entre 5 et " + item[3] + " caractères"
+                error = "le " + item[0] + " doit être entre 5 et " + item[2] + " caractères"
                 document.getElementById("error").innerHTML = error;
                 document.getElementById("resultat").style.display = "none";
                 return;
