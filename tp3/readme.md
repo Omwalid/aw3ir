@@ -1,11 +1,11 @@
-<p align="center">
-  <a href="https://master3ir2020.slack.com/messages/aw">
-     <img src="https://github.com/bilelz/tpaw/blob/master/galilee.png?raw=true" alt="Logo Master" width=100/>
-  </a>  
+<div align="center">
+      <img src="https://github.com/bilelz/tpaw/blob/master/galilee.png?raw=true" alt="Logo Master" width=100/>
   <br/>
-  Master 3IR² | <a href="https://master3ir2020.slack.com/messages/aw">master3ir2020.slack.com</a>
-<h3 align="center">TP AW #3 : Bootstrap & jQuery</h3>
-</p>
+  Master 3IR²</div>
+
+  
+<h3 align="center">TP AW #3 : Bootstrap</h3>
+
 
 ### Prérequis (⚠️ important)
 
@@ -19,27 +19,24 @@
 
 Table des matières
 =================
+- [Table des matières](#table-des-matières)
+  - [1. Objectif du TP](#1-objectif-du-tp)
+  - [2. Plateforme de dév](#2-plateforme-de-dév)
+  - [3. Création du formulaire avec Bootstrap](#3-création-du-formulaire-avec-bootstrap)
+  - [4. Validation Javascript](#4-validation-javascript)
+  - [5. Affichage d'une popup (modal)](#5-affichage-dune-popup-modal)
 
-  1. [Objectif du TP](#1-objectif-du-tp)
-  2. [Plateforme de dév](#2-plateforme-de-dév)
-  3. [Création du formulaire avec Bootstrap](#3-création-du-formulaire-avec-bootstrap)
-  4. [Validation jQuery](#4-validation-jquery)
-  5. [Affichage d'une popup (modal)](#5-affichage-dune-popup-modal)
-  6. [Ajout d’un calendrier jQueryU](#6-ajout-dun-calendrier-jqueryui)
+ 
   
   
 ## 1. Objectif du TP
-* Faire connaissance avec [Bootstrap](https://github.com/twbs/bootstrap) (v4) la librairie CSS la plus célèbre
-* Utiliser [jQuery](https://jquery.com/) pour y voir les équivalences avec du Javascript Natif
-* Utilisation du calendrier Jquery-ui qui a plus de paramètrages que le calendrier natif des navigateurs
+* utiliser les composants graphiques de [Bootstrap](https://github.com/twbs/bootstrap) (v5.1.3), la librairie CSS la plus célèbre pour développer rapidement des pages web.
+  
+
 
 Bootstrap est le framework HTML/CSS/JS le plus populaire pour développer des sites web “responsive” et orientés “mobile-first”.
 
-La version 4.0 (que nous utiliserons) vient de sortir, les tutoriels sur internet parlent encore donc souvent de la version 3.3.7.
-
-jQuery ajoute des fonctions au Javascript 'natif', il était beaucoup utilisé dans les années 2007-2015 avant l'arrivée de la dernière version de Javascript ([ES2015](http://www.lilleweb.fr/js/2015/03/23/a-la-decouverte-de-es2015/))
-
-Tuto: http://www.w3schools.com/jquery/default.asp
+La version 5.1.3 (que nous utiliserons) vient de sortir, les tutoriels sur internet parlent encore donc souvent de la version 3 ou 4.
 
 Le formulaire permettra de saisir les informations suivantes :
 * Nom
@@ -53,12 +50,8 @@ Le formulaire permettra de saisir les informations suivantes :
 
 ## 2. Plateforme de dév
 
-  * Télécharger le code source *compilé* (Compiled CSS and JS) de Bootstrap dans votre dossier TP3 :    http://getbootstrap.com/docs/4.0/getting-started/download/
-
-  * Télécharger popper.js qui facilite l'affichage des modal et tooltip :
-  https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js
-
-  * Télécharger la version slim de jquery dans votre dossier tp3/js: https://code.jquery.com/jquery-3.2.1.slim.min.js
+  * Télécharger le code source *compilé* *(Compiled CSS and JS)* de Bootstrap dans votre dossier TP3 :    https://getbootstrap.com/docs/5.1/getting-started/download/
+ 
 
 A la fin du TP votre répertoire devra ressembler à ça:
 
@@ -68,75 +61,93 @@ tp3/
 ├── index.html
 ├── css/
 │   ├── bootstrap.css
-│   ├── bootstrap.min.css
 └── js/
-    ├── bootstrap.js
-    └── bootstrap.min.js
-    ├── popper.min.js
-    └── jquery-3.2.1.slim.min.js   
-    └── form-jquery-validation.js
+    └── bootstrap.bundle.js
+    └── form-validation.js
 ```
 
 
 Copier ces imports de scripts JS et CSS dans la section \<HEAD\>
 
-```html
-<!-- jquery pour pouvoir utiliser les composants JS de boostap (modal, tooltip...) -->
-<script src="js/jquery-3.2.1.slim.min.js"></script>
+```html 
 
 <!-- CSS boostrap -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap.css">
 
-<script src="js/popper.min.js"></script>
-
-<!-- composants JS de boostrap (modal http://getbootstrap.com/docs/4.0/components/modal/ , collapse...) -->
-<script src="js/bootstrap.min.js"></script>
+<!-- librairie Javascript de boostrap pour pouvoir utiliser les composants interactifs (modal https://getbootstrap.com/docs/5.1/components/modal/ , collapse...) -->
+    <script src="js/bootstrap.bundle.js"></script>
 ```
 
 ## 3. Création du formulaire avec Bootstrap
-      1. Sous la balise \<body\>, ajouter la DIV :
+      1. Sous la balise `<body>`, ajouter la DIV :
 ```html
 <div class="container">
   <!-- Content here -->
 </div>
 ```
-Tout votre code HTMl devra être dans cette DIV.
+**Tout votre code HTMl devra être dans cette DIV.**
 
    2. Elements principaux Bootstrap pour mettre en forme les formulaires
-      1. Grilles : http://getbootstrap.com/docs/4.0/layout/grid
-      2. Formulaires : http://getbootstrap.com/docs/4.0/components/forms
-      * **Utiliser par exemple ce formulaire pour ce TP http://getbootstrap.com/docs/4.0/components/forms/#layout**
-      3. Boutons : http://getbootstrap.com/docs/4.0/components/buttons
+      1. Grilles : https://getbootstrap.com/docs/5.1/layout/grid/
+      2. Formulaires : https://getbootstrap.com/docs/5.1/forms/layout/#forms
+      * **Utiliser par exemple cette de mise en forme pour ce TP https://getbootstrap.com/docs/5.1/forms/layout/#horizontal-form**
+      3. Boutons : https://getbootstrap.com/docs/5.1/components/buttons/
 
-## 4. Validation jQuery
-   1. Créer votre script JavaScript form-jquery-validation.js
+## 4. Validation Javascript
+
+1. Créer votre script JavaScript form-validation.js
 ```html
-<script src="js/form-jquery-validation.js"></script>
+<script src="js/form-validation.js"></script>
 ```
-Votre code JS/jquery sera structuré comme suit : 
+Votre code JS sera structuré comme suit : 
 
 ```js
-$( document ).ready(function() {
-   // ce code est exécuter une fois que toute la page est téléchargée par le navigateur
+window.onload = function () {   // ce code est exécuter une fois que toute la page est téléchargée par le navigateur
    // voir plus : https://www.w3schools.com/js/js_htmldom.asp
     console.log( "DOM ready!" );
     
-    // Y mettre le code jQuery pour valider tous les champs du formulaire
-});
+    // Y mettre le code Javascript pour valider tous les champs du formulaire
+};
 ```
 
-   2. Si tous les champs sont correctes, afficher une fenêtre modale (voir [partie 5](#5-affichage-dune-popup-modal)) avec une image statique Google Maps et un lien (ouvrant une nouvelle fenêtre/onglet) vers Google Maps
+2. Règles de validation du formulaire : 
+   * les champs texte doivent avoir **5 caractères mininum**
+   * le mail doit être bien formaté
+     * fonction de validation d'email
+     ```js
+     function validateEmail(email) {
+       const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+       return re.test(String(email).toLowerCase());
+     }
+     ```
 
-   3. Equivalence entre Javascript natif et jQuery
+   * la date de naissance ne peut pas être dans le futur
+     * documentation sur l'objet javascript Date : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Date
+     * pour `parser` une date : 
+       ```js
+       let dateNaissance = new Date(2018, 8, 22); // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Date/Date#syntaxe
+       let dateNaissanceTimestamp = dateNaissance.getTime();
+       ```
+     * le timestamp actuel est récupérable avec `Date.now()`, voir https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Date/now
+       ```js
+       let nowTimestamp = Date.now()
+       ```
 
-|                                 | Javascript                                          | jQuery           |
-|---------------------------------|-----------------------------------------------------|----------------------------------------------|
-|Attente du chargement de la page | window.onload = function(){ ... };                  | $( document ).ready(function(){ .... });     |
-|Selection d'un élément           | document.querySelector("#name")                     | $("#name")                                   |
-|valeur d’un champ                | document.querySelector("#name").value;              | $("#name").val()                             |
-|Modifier de contenu HTML         | document.querySelector(".modal-body").innerHTML = '\<img src="map.jpg"/\>'   | $(".modal-body").html('\<img src="map.jpg"/\>'); | 
-|Modifier de contenu textuelle    | document.querySelector(".modal-title").textContent = "Chaine de caractère" | $(".modal-title").text("Chaine de caractère"); | 
-| ajouter un "listener" à un élément | document.querySelector("#submit").addEventListener("click", function(event){<br/> &nbsp;&nbsp;event.preventDefault(); <br/>&nbsp;&nbsp;console.log( "click" ); <br/>});  |  $("#submit").on("click",function(event){ <br/>&nbsp;&nbsp;event.preventDefault(); <br/>&nbsp;&nbsp;console.log( "click" ); <br/>});  |
+    
+
+3. Si tous les champs sont correctes, afficher une fenêtre modale (voir [partie 5](#5-affichage-dune-popup-modal)) avec une image statique Google Maps et un lien (ouvrant une nouvelle fenêtre/onglet) vers Google Maps
+
+2. Fonctions ou méthodes pratiques de Javascript 
+
+|                                 | Javascript                                          | 
+|---------------------------------|-----------------------------------------------------|
+|Attente du chargement de la page | window.onload = function(){ ... };                  |
+|Selection d'un élément           | document.querySelector("#name")                     |
+|valeur d’un champ de saisie               | document.querySelector("#name").value;              |
+|Modifier du contenu HTML         | document.querySelector(".modal-body").innerHTML = '\<img src="map.jpg"/\>'   | 
+|Modifier du contenu textuelle    | document.querySelector(".modal-title").textContent = "Chaine de caractère" | 
+| interception de la soumission d'un formulaire | document.querySelector("form").addEventListener("submit", function (event) {<br/>   &nbsp; event.preventDefault();<br/>    &nbsp;&nbsp;console.log("form submitted!");<br/>  });  |
+| interception du click sur un élément | document.querySelector("#submit").addEventListener("click", function(event){<br/> &nbsp;&nbsp;event.preventDefault(); <br/> &nbsp; console.log( "click" ); <br/>});  |
 
 ## 5. Affichage d'une popup (modal)
 ![Texte alternatif](image4.png "texte pour le titre, facultatif")   
@@ -144,32 +155,29 @@ Modal quand un champ est vide
 
    1. Ajouter ce code HTML à la fin de votre page HTML (avant la balise \</body\>)
    
-   La modal devra avoir un identifiant pour pouvoir être utiliser en javascript 
+   La modal devra avoir un identifiant (par exemple `myModal`) pour pouvoir être utiliser en javascript 
 ```html
-<div class="modal" tabindex="-1" role="dialog" id="myModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">...</div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+               
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        <p>Corps de la modal à modifier après validation du formulaire</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 ```
 
    2. affichage de la modal
 ```js
-   $('#myModal').modal("show");
+var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+myModal.show();
 ```
 
 ![Texte alternatif](image3.png "texte pour le titre, facultatif")   
@@ -185,15 +193,5 @@ Modal quand tous les champs sont OK
       https://maps.googleapis.com/maps/api/staticmap?markers=Paris&zoom=14&size=400x300&scale=2&key=AIzaSyAkmvI9DazzG9p77IShsz_Di7-5Qn7zkcg
 
    4. L'image devra être entouré par un lien hypertexte vers Google Mapas: http://maps.google.com/maps?q=Paris
-
-
-## 6. Ajout d’un calendrier jQueryUI (Bonus)
-
-![Texte alternatif](image2.png "texte pour le titre, facultatif")   
-   1. Mettre en place le  plug-in Datepicker de JqueryUI disponible ici : http://jqueryui.com/datepicker/
-      * Options disponibles pour ce plugin http://api.jqueryui.com/datepicker/
-  
-   2. Spécifier un format de saisie de la date "dd/mm/yy"
-   3. Restreindre la saisie max de la date au jour courant (option maxdate)
 
 
