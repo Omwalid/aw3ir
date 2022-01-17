@@ -84,7 +84,7 @@ window.onload = function () {
 
             meteo: function (_city) {
 
-                if(this.removeCityButton){return}
+                if(this.removeCityButton){this.removeCityButton=false; return}
 
                 this.cityWeatherLoading = true;
                 if (!this.openCard) {
