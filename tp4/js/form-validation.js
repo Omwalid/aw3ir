@@ -106,7 +106,7 @@ window.onload = function () {
     });
 
     document.getElementById("locationButton").addEventListener("click", function () {
-        event.preventDefault()
+      //  event.preventDefault()
         var location = getLocation()
         console.log(location);
     })
